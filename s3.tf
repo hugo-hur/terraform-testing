@@ -32,9 +32,10 @@ locals {
 resource "aws_s3_bucket" "terraform_example_bucket" {
   bucket = local.s3BucketName
   acl = "private"
-  versioning {
-    enabled = false
-  }
+  #versioning {#Thi creates versioning to suspended state
+  #  enabled = false
+  #}
+
   #policy = #data.aws_iam_policy_document.s3_policy.json
   policy = jsonencode({
       "Version": "2008-10-17",
